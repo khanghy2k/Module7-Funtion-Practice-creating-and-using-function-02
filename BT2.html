@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="BanKinh">
+<button onclick="circularArea(),circumferenceOfTheCircle()">Kết Quả</button>
+<p id="DiệnTích"></p>
+<p id="Chuvi"></p>
+<script>
+    function circularArea() {
+        const pi = 3.14;
+        let result = 0;
+        let r = document.getElementById('BanKinh').value;
+        result =pi*Math.pow(r,2)
+        document.getElementById('DiệnTích').innerHTML = "Diện Tích Hình tròn là : "+result;
+    }
+    function circumferenceOfTheCircle() {
+        const pi = 3.14;
+        let result = 0;
+        let r = document.getElementById('BanKinh').value;
+        result =2*pi*r;
+        document.getElementById('Chuvi').innerHTML = "Chu Vi Hình tròn là : "+result;
+    }
+</script>
+</body>
+</html>

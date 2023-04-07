@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .product {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 30px;
+        background-color: darkgray;
+        margin: 10px;
+        padding: 10px;
+    }
+    button {
+        border-radius: 5px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        margin: 5px;
+    }
+
+    input[type="submit"] {
+        display: block;
+        margin: 0 auto;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #table-container {
+        display: none;
+    }
+    .table-product {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin: 10px;
+        padding: 10px;
+    }
+</style>
+
+<div class="product">
+    <input type="text" placeholder="New Product" id="Product">
+    <button onclick="createProduct()">Add</button>
+</div>
+    <div class="table-product">
+<table style="margin: 10px;padding: 10px">
+    <caption>Product Name</caption>
+    <tbody id="drawTable">
+    </tbody>
+</table>
+    </div>
+<td><div id="table-container">
+    <label for="name">Product Name:</label>
+    <input type="text" id="name" name="name"><br>
+</div>
+
+    <script>
+        let product = ['Sony Xpreia','Samsung Galaxy','Nokia 6','Xiaomi Redmi Note 4','Apple Iphone 6S'];
+
+        function showProduct() {
+            let drawTable = '';
+            for (let i = 0 ; i<product.length;i++){
+                drawTable +=`<tr>
+                        <td>${product[i]}</td>
+                        <td><button onclick="editProduct(${i})">Edit</button></td>
+                        <td><button onclick="deleteProduct(${i})">Delete</button></td>
+                        </tr>`
+            }
+            document.getElementById('drawTable').innerHTML = drawTable;
+        }
+        showProduct();
+        function createProduct() {
+            let createProducts = document.getElementById('Product').value;
+            product.push(createProducts);
+            showProduct();
+            document.getElementById('Product').value = "";
+        }
+        function editProduct(index) {
+            let editProduct = document.getElementById('name').value;
+            document.getElementById('name').value = product[index];
+            let tableContainer = document.getElementById('table-container');
+            tableContainer.style.display = 'block';
+            let flag = false;
+            for (let i = 0 ; i<product.length;i++){
+                if (editProduct.trim() === product[i]){
+                    flag = true;
+                    break;
+                }
+            }
+          if (!flag){
+              product[index] = editProduct;
+              showProduct();
+          }
+        }
+
+        function deleteProduct(index) {
+            product.splice(index,1)
+            showProduct()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="number">
+<button onclick="IsNan()">Kiểm Tra</button>
+<script>
+  function IsNan() {
+    let number = document.getElementById('number').value
+    if (isNaN(number)){
+    return false;
+    }
+  return  true;
+  }
+</script>
+</body>
+</html>
