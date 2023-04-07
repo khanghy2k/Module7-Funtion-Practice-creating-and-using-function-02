@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="newStudent" type="text">
+<button onclick="Square()">Create</button>
+<p id="validate"></p>
+<script>
+function Square() {
+let result = 0;
+let Square = document.getElementById('newStudent').value;
+if (isNaN(Square) || Square === ""){
+document.getElementById('validate').innerHTML = "Vui lòng nhập số hợp lệ"
+} else {
+result = Square * Square;
+document.getElementById('validate').innerHTML = "" + result
+}
+}
+</script>
+</body>
+</html>
